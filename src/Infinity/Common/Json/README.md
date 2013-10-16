@@ -9,18 +9,18 @@ Example use:
 Encoding:
 
 ```php
-    use Infinity\Common\Json;
+use Infinity\Common\Json;
 
-    $o = new StdClass;
-    $o->key = 'value';
+$o = new StdClass;
+$o->key = 'value';
 
-    $encoded = Json\Parser::encode( $o );
-    echo $encoded . "\n";
+$encoded = Json\Parser::encode( $o );
+echo $encoded . "\n";
 ```
 
 Decoding:
 
 ```php
-    $decoded = Json\Parser::decode( $encoded );
-    var_dump( $decoded );
+$decoded = Json\Parser::decode( $encoded );
+var_dump( $decoded );
 ```

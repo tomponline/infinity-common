@@ -8,14 +8,14 @@ Example use:
 
 
 ```php
-    use Infinity\Common\Exception\Exception;
+use Infinity\Common\Exception\Exception;
 
-    try
-    {
-        throw new Exception( "There has been a problem" );
-    }
-    catch( Exception $e )
-    {
-        var_dump($e);
-    }
+try
+{
+    throw new Exception( "There has been a problem" );
+}
+catch( Exception $e )
+{
+    var_dump($e);
+}
 ```
