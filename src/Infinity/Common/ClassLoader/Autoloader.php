@@ -5,6 +5,8 @@ namespace Infinity\Common\ClassLoader;
  * This class is based on the PSR-0 autoloader reference implementation.
  * https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
  * Use this to autoload classes if you are not using the Composer autoloader.
+ * @author Thomas Parrott <thomas.parrott@infinitycloud.com>
+ * @package infinity-common
  */
 class Autoloader
 {
