@@ -24,7 +24,7 @@ It installs into /usr/lib/infinity-common
 
 export INSTALL_ROOT=$RPM_BUILD_ROOT
 install -d -m 755 $RPM_BUILD_ROOT/usr/lib/%{name}
-cp -R * $RPM_BUILD_ROOT/ust/lib/%{name}
+cp -R * $RPM_BUILD_ROOT/usr/lib/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
