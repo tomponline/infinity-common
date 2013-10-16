@@ -24,7 +24,7 @@ class Parser
      * JSON_BIGINT_AS_STRING is supported (default is to cast large integers
      * as floats)
      *
-     * @throws Infinity\Common\Exception\Exception
+     * @throws Exception
      * @return mixed
      */
     public static function decode(
@@ -50,7 +50,7 @@ class Parser
      * JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT,
      * JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_UNESCAPED_UNICODE.
      *
-     * @throws Infinity\Common\Exception\Exception
+     * @throws Exception
      * @return string
      */
     public static function encode( $value, $options = 0 )
