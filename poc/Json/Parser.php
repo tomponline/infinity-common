@@ -8,6 +8,18 @@ set_include_path(
 require 'Infinity/Common/ClassLoader/Autoloader.php';
 
 use Infinity\Common\ClassLoader\Autoloader;
+use Infinity\Common\Json;
 
 $autoload = new Autoloader();
 $autoload->register();
+
+$o = new StdClass;
+$o->key = 'value';
+
+$encoded = Json\Parser::encode( $o );
+
+echo $encoded . "\n";
+
+$decoded = Json\Parser::decode( $encoded );
+
+var_dump( $decoded );
