@@ -12,7 +12,7 @@ BuildArch: noarch
 
 %description
 This package contains common PHP classes used by Infinity applications.
-It installs into /var/lib/infinity-common
+It installs into /usr/lib/infinity-common
 
 %prep
 %setup -q
@@ -23,12 +23,12 @@ It installs into /var/lib/infinity-common
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
 
 export INSTALL_ROOT=$RPM_BUILD_ROOT
-install -d -m 755 $RPM_BUILD_ROOT/var/lib/%{name}
-cp -R * $RPM_BUILD_ROOT/var/lib/%{name}
+install -d -m 755 $RPM_BUILD_ROOT/usr/lib/%{name}
+cp -R * $RPM_BUILD_ROOT/ust/lib/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-/var/lib/%{name}
+/usr/lib/%{name}
