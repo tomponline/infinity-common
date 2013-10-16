@@ -7,10 +7,15 @@ when they are needed.
 Example use:
 
 ```php
-    require __DIR__.'/src/Infinity/Common/ClassLoader/Autoloader.php';
+set_include_path(
+        get_include_path()
+        . PATH_SEPARATOR . __DIR__ . '/src/'
+);
 
-    use Infinity\Common\ClassLoader\Autoloader;
+require 'Infinity/Common/ClassLoader/Autoloader.php';
 
-    $autoload = new Autoloader();
-    $autoload->register();
+use Infinity\Common\ClassLoader\Autoloader;
+
+$autoload = new Autoloader();
+$autoload->register();
 ```
