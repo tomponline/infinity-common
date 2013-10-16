@@ -1,6 +1,8 @@
 infinity-common
 ===============
 
+Common open source shared classes used by Infinity.
+
 #Installation
 
 ##Composer
@@ -25,8 +27,6 @@ composer require infinity/infinity-common
 ```
 
 ##RPM
-
-Common open source shared classes used by Infinity.
 
 The RPM package installs these files into:
 
