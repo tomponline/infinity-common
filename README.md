@@ -1,4 +1,4 @@
-infinity-common
+infinity-common [![Build Status](https://travis-ci.org/infinitytracking/infinity-common.png?branch=master)](https://travis-ci.org/infinitytracking/infinity-common)
 ===============
 
 Common open source shared classes used by Infinity.
