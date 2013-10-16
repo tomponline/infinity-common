@@ -13,7 +13,7 @@ Add to your requirements and run update
 },
 ```
 
-```bash
+```sh
 composer update infinity/infinity-common
 ```
 
