@@ -50,7 +50,7 @@ class Parser
      * JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT,
      * JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_UNESCAPED_UNICODE.
      *
-     * @throws Icc_Exception
+     * @throws Infinity\Common\Exception\Exception
      * @return string
      */
     public static function encode( $value, $options = 0 )
@@ -67,7 +67,7 @@ class Parser
     /**
      * Throws a JSON exception based on the last JSON error that occurred
      *
-     * @throws Icc_Exception
+     * @throws Infinity\Common\Exception\Exception
      */
     private static function _throwJsonException()
     {
