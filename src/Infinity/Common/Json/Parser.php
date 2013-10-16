@@ -1,6 +1,9 @@
 <?php
 namespace Infinity\Common\Json;
 
+use Infinity\Common\Exception\Exception;
+use Infinity\Common\Status\Status;
+
 /**
  * Allows decoding and encoding of JSON
  *
@@ -97,8 +100,8 @@ class Parser
                 break;
         }
 
-        throw new Icc_Exception(
-            'Could not decode JSON: ' . $msg, Icc_Status::BAD_REQUEST
+        throw new Exception(
+            'Could not decode JSON: ' . $msg, Status::BAD_REQUEST
         );
     }
 }

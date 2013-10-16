@@ -21,5 +21,4 @@ $encoded = Json\Parser::encode( $o );
 echo $encoded . "\n";
 
 $decoded = Json\Parser::decode( $encoded );
-
 var_dump( $decoded );
