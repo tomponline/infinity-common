@@ -12,6 +12,7 @@ Add to your requirements and run update
     "infinity/infinity-common": "dev-master"
 },
 ```
+
 ```bash
 composer update infinity/infinity-common
 ```
