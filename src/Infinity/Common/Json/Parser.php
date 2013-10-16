@@ -8,7 +8,7 @@ use Infinity\Common\Status\Status;
  * Allows decoding and encoding of JSON
  *
  * @author David North <david.north@infinitycloud.com>
- * @package icc
+ * @package inifinity-common
  */
 class Parser
 {
