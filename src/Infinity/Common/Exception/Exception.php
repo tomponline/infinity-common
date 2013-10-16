@@ -1,6 +1,8 @@
 <?php
 namespace Infinity\Common\Exception;
 
+use Infinity\Common\Status\Status;
+
 /**
  * This method provides the default Exception type for all Infinity software.
  * @author Thomas Parrott <thomas.parrott@infinitycloud.com>
@@ -26,7 +28,7 @@ class Exception extends \Exception
     /**
      * Constructor.
      * @param string $message The internal exception message
-     * @param int $code The status code from Icc_Status.
+     * @param int $code The status code from Status.
      * @param Exception $previous The previous exception
      */
     public function __construct(
@@ -34,7 +36,7 @@ class Exception extends \Exception
     {
         if( NULL === $code )
         {
-            $code = Icc_Status::ERROR; //Default to error code for exceptions.
+            $code = Status::ERROR; //Default to error code for exceptions.
         }
 
         $this->_retryLimit  = NULL;
