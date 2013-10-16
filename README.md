@@ -20,7 +20,9 @@ composer update infinity/infinity-common
 
 Or use the CLI
 
+```sh
 composer require infinity/infinity-common
+```
 
 ##RPM
 
