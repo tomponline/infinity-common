@@ -24,7 +24,7 @@ class Parser
      * JSON_BIGINT_AS_STRING is supported (default is to cast large integers
      * as floats)
      *
-     * @throws Icc_Exception
+     * @throws Infinity\Common\Exception\Exception
      * @return mixed
      */
     public static function decode(
