@@ -15,8 +15,15 @@
     "require": {
         "php": ">=5.5"
     },
-    "autoload": {
-        "psr-0": { "Infinity\\Common": "" }
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
     },
-    "target-dir": "Infinity/Common"
+    "autoload": {
+        "psr-0": { "Infinity\\Common": "" },
+        "psr-0": { "": "src" }
+    },
+    "target-dir": "Infinity/Common",
+    "config": {
+        "bin-dir": "bin"
+    }
 }
