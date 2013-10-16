@@ -1,0 +1,22 @@
+{
+    "name": "infinity/infinity-common",
+    "type": "library",
+    "license": "GPL-2.0",
+    "description": "Infinity Common PHP Classes",
+    "keywords": ["infinity", "php", "common", "classes"],
+    "homepage": "https://github.com/infinitytracking/infinity-common",
+    "authors": [
+        {
+            "name": "Thomas Parrott",
+            "email": "thomas.parrott@infinitycloud.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.5",
+    },
+    "autoload": {
+        "psr-0": { "Infinity\\Common": "" }
+    },
+    "target-dir": "Infinity/Common"
+}
