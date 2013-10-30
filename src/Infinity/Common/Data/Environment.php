@@ -2,7 +2,7 @@
 namespace Infinity\Common\Data;
 
 use Infinity\Common\Exception\Exception;
-use Infinity\Common\Db\Geoip;
+use Infinity\Common\Data\Environment\Provider\ProviderBase;
 
 /**
  * This class contains provides an intelligent data container object that is
@@ -21,13 +21,6 @@ class Environment
     {
         $this->_keyPrefixes     = array();
         $this->_cachedValues    = array();
-
-        //Register global prefixes.
-        $this->registerPrefixHandler( 'hostname',
-            array( $this,  '_getHostname' ) );
-
-        $this->registerPrefixHandler( 'geoip',
-            array( $this,  '_getGeoIp' ), TRUE );
     }
 
     /**
@@ -91,21 +84,8 @@ class Environment
         );
     }
 
-    private function _getHostname()
+    public function registerProvider( ProviderBase $provider )
     {
-        return gethostname();
-    }
-
-    private function _getGeoIp( $key )
-    {
-        $geoip = new Geoip();
-
-        if( 'geoip_country' === $key )
-        {
-            if( isset( $_SERVER[ 'REMOTE_ADDR' ] ) )
-            {
-                return $geoip->getCountryCode( $_SERVER[ 'REMOTE_ADDR' ] );
-            }
-        }
+        $provider->register( $this );
     }
 }
