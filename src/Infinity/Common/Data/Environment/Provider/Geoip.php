@@ -14,7 +14,7 @@ class Geoip extends ProviderBase implements ProviderInterface
     public function register( Environment $env )
     {
         $env->registerPrefixHandler(
-            'geoip_client_country', array( $this, 'getClientIpCountry'), TRUE );
+            'geoip_client_country', array($this, 'getClientIpCountry'), TRUE );
     }
 
     /**
