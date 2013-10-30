@@ -46,8 +46,23 @@ class Environment
                 elseif( !empty( $conf[ 'callback' ] ) &&
                         is_callable( $conf[ 'callback' ] ) )
                 {
-                    //Execute the callback, passing the key requested.
-                    $ret = call_user_func( $conf[ 'callback' ], $key );
+                    //Strip prefix and delimiters from key.
+                    $callbackKey = ltrim(
+                        substr( $key, strlen( $prefix ) ),
+                        '_-:. ~'
+                    );
+
+                    //Execute the callback with non-prefixed key if set.
+                    if( '' !== $callbackKey )
+                    {
+                        $ret = call_user_func(
+                            $conf[ 'callback' ], $callbackKey );
+                    }
+                    //Execure the callback without key if not set.
+                    else
+                    {
+                        $ret = call_user_func( $conf[ 'callback' ] );
+                    };
 
                     //Cache the return value if cache is enabled for prefix.
                     if( !empty( $conf[ 'cache' ] ) )
