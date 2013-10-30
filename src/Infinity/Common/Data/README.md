@@ -60,6 +60,6 @@ function slowVariable()
 
 $environment->registerPrefixHandler( 'slowVar', 'slowVariable', $cache = TRUE );
 
-var_dump( $environment->get('slowVar') ); //This will take 2 seconfs
+var_dump( $environment->get('slowVar') ); //This will take 2 seconds
 var_dump( $environment->get('slowVar') ); //This will be instant
 ```
