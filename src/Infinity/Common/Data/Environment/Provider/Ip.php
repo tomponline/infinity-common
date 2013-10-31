@@ -9,7 +9,7 @@ use Infinity\Common\Db\Geoip as GeoipDb;
  * @author Thomas Parrott <thomas.parrott@infinitycloud.com>
  * @package infinity-common
  */
-class Ip extends ProviderBase implements ProviderInterface
+class Ip implements ProviderInterface
 {
     public function register( Environment $env )
     {

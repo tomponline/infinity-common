@@ -2,7 +2,7 @@
 namespace Infinity\Common\Data;
 
 use Infinity\Common\Exception\Exception;
-use Infinity\Common\Data\Environment\Provider\ProviderBase;
+use Infinity\Common\Data\Environment\Provider\ProviderInterface;
 
 /**
  * This class contains provides an intelligent data container object that is
@@ -99,7 +99,15 @@ class Environment
         );
     }
 
-    public function registerProvider( ProviderBase $provider )
+    /**
+     * This method registers a provider object with the Enviroment object.
+     * This will call the register() method on the supplied $provider passing
+     * $this as an argument. It will allow the provider to register the bundled
+     * variable prefixes it provides.
+     * @param ProviderInterface $provider Provider object.
+     * @return NULL
+     */
+    public function registerProvider( ProviderInterface $provider )
     {
         $provider->register( $this );
     }
