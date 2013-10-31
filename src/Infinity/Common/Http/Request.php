@@ -41,8 +41,11 @@ class Request
         if( isset( $_SERVER[ 'PATH_INFO' ] ) )
         {
 
-            //Remove trailing slash if present.
-            $this->_path            = rtrim( $_SERVER[ 'PATH_INFO' ], '/' );
+            //Remove slashes at end and begining if present.
+            //This ensures that the first segment is valid and not emtpy string.
+            //It also ensures that route maps don't have to worry about
+            //trailing slashes.
+            $this->_path            = trim( $_SERVER[ 'PATH_INFO' ], '/' );
             $this->_segments        = explode( '/', $this->_path );
             $this->_noOfSegments    = count( $this->_segments );
         }
@@ -63,10 +66,9 @@ class Request
             $ret = $this->_segments[ $this->_noOfSegments - 1 ];
         }
         //Otherwise positive integers for $index gets the segment at position.
-        elseif( isset( $this->_segments[ $index ] ) &&
-            $this->_segments[ $index ] != '' )
+        elseif( isset( $this->_segments[ $index - 1 ] ) )
         {
-            $ret = $this->_segments[ $index ];
+            $ret = $this->_segments[ $index - 1 ];
         }
 
         return rawurldecode( $ret );

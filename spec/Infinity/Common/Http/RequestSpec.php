@@ -23,5 +23,13 @@ class RequestSpec extends ObjectBehavior
     function it_has_a_getSegment_method()
     {
         $this->getSegment( 1 )->shouldReturn( 'segment1' );
+        $this->getSegment( 2 )->shouldReturn( 'segment2' );
+        $this->getSegment( -1 )->shouldReturn( 'segment2' );
+        $this->getSegment( 0 )->shouldReturn( '' );
+    }
+
+    function it_has_a_getSegmentCount_method()
+    {
+        $this->getSegmentCount()->shouldReturn(2);
     }
 }
