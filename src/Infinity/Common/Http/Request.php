@@ -40,10 +40,11 @@ class Request
         //Decode the path info in the HTTP request.
         if( isset( $_SERVER[ 'PATH_INFO' ] ) )
         {
+
             //Remove trailing slash if present.
             $this->_path            = rtrim( $_SERVER[ 'PATH_INFO' ], '/' );
             $this->_segments        = explode( '/', $this->_path );
-            $this->_noOfSegments    = count( $this->_data[ 'segments' ] );
+            $this->_noOfSegments    = count( $this->_segments );
         }
     }
 
