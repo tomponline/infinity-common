@@ -75,7 +75,7 @@ class Request
      * Returns the number of segments
      * @return int The number of segments in the URI
      */
-    public function getSegmentsCount()
+    public function getSegmentCount()
     {
         return $this->_noOfSegments;
     }
