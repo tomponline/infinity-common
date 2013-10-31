@@ -98,7 +98,9 @@ class Request
      */
     public function getPath()
     {
-        return $this->_path;
+        //Prefix forward slash to restore the one was removed when processing
+        //segments.
+        return '/' . $this->_path;
     }
 
     /**
@@ -257,7 +259,7 @@ class Request
 
         if( isset( $_SERVER[ 'HTTP_ACCEPT' ] ) )
         {
-            $ret = strtoupper( $_SERVER[ 'HTTP_ACCEPT' ] );
+            $ret = $_SERVER[ 'HTTP_ACCEPT' ];
         }
 
         return $ret;
