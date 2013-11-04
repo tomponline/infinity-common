@@ -11,6 +11,13 @@ use Infinity\Common\Db\Geoip as GeoipDb;
  */
 class Geoip implements ProviderInterface
 {
+    private $_geoipDb;
+
+    public function __construct()
+    {
+        $this->_geoipDb = new GeoipDb();
+    }
+
     public function register( Environment $env )
     {
         $env->registerPrefixHandler(
@@ -23,11 +30,9 @@ class Geoip implements ProviderInterface
      */
     public function getClientIpCountry()
     {
-        $geoipDb = new GeoipDb();
-
         if( isset( $_SERVER[ 'REMOTE_ADDR' ] ) )
         {
-            return $geoipDb->getCountryCode( $_SERVER[ 'REMOTE_ADDR' ] );
+            return $this->_geoipDb->getCountryCode( $_SERVER[ 'REMOTE_ADDR' ] );
         }
     }
 }
