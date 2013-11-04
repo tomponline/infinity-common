@@ -27,7 +27,7 @@ $_SERVER[ 'REMOTE_ADDR' ] = '8.8.8.8';
 //URL Provider
 $url = new Provider\Url();
 $environment->registerProvider( $url );
-$_GET[ 'test' ] = 'test uri param value';
+$_GET[ 'test' ] = 'test url param value';
 $_SERVER[ 'HTTP_HOST' ] = 'test.com';
 
 //Local callback prefix
