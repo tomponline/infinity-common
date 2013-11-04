@@ -28,13 +28,11 @@ class UrlSpec extends ObjectBehavior
 
     function it_has_a_getUrlParam_method()
     {
-        //Can't test with an IP because it relies on Maxmind database.
         $this->getUrlParam( 'test' )->shouldReturn( 'test url param value' );
     }
 
     function it_has_a_getUrlHost_method()
     {
-        //Can't test with an IP because it relies on Maxmind database.
         $this->getUrlDomain()->shouldReturn( 'test.com' );
     }
 
