@@ -374,6 +374,4 @@ class Request
 
         return $ret;
     }
-
-
 }
