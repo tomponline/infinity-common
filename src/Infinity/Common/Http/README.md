@@ -34,6 +34,7 @@ $persistParams = array(
     'tag2'  => 'P2D',       //Stores this in a cookie for 2 days
 );
 
+$landHelper->setPersistedLandParamRules( $persistPams );
 $landHelper->run();
 
 var_dump($landHelper->isLand()); //Returns TRUE or FALSE
