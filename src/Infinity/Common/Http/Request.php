@@ -327,11 +327,11 @@ class Request
 
         if( isset( $_SERVER[ 'HTTP_HOST' ] ) )
         {
-            $ret = $_SERVER[ 'HTTP_HOST' ];
+            $ret = strtolower( $_SERVER[ 'HTTP_HOST' ] );
         }
         elseif( isset( $_SERVER[ 'SERVER_NAME' ] ) )
         {
-            $ret = $_SERVER[ 'SERVER_NAME' ];
+            $ret = strtolower( $_SERVER[ 'SERVER_NAME' ] );
         }
 
         return $ret;
@@ -374,4 +374,6 @@ class Request
 
         return $ret;
     }
+
+
 }

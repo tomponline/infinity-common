@@ -20,7 +20,9 @@ class RequestSpec extends ObjectBehavior
         $_SERVER[ 'REMOTE_ADDR' ]       = '127.0.0.1';
         $_COOKIE[ 'cookie1' ]           = 'testVal1';
         $_SERVER[ 'HTTP_USER_AGENT' ]   = 'User Agent';
-        $_SERVER[ 'HTTP_HOST' ]         = 'localhost';
+
+        //Uppercase to test for lowercase conversion
+        $_SERVER[ 'HTTP_HOST' ]         = 'LOCALHOST';
         $_SERVER[ 'HTTP_REFERER' ]      = 'http://somesite.com';
         $_SERVER[ 'PHP_AUTH_USER' ]     = 'user';
         $_SERVER[ 'PHP_AUTH_PW' ]       = 'pass';
@@ -114,6 +116,7 @@ class RequestSpec extends ObjectBehavior
     function it_has_a_getHost_method()
     {
         $this->getHost()->shouldReturn('localhost');
+        $this->getHost()->shouldNotReturn('LOCALHOST');
     }
 
     function it_has_a_getReferrer_method()
