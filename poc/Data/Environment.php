@@ -30,6 +30,11 @@ $environment->registerProvider( $url );
 $_GET[ 'test' ] = 'test url param value';
 $_SERVER[ 'HTTP_HOST' ] = 'test.com';
 
+//Cookie Provider
+$cookie = new Provider\Cookie();
+$environment->registerProvider( $cookie );
+$_COOKIE[ 'test' ] = 'test cookie value';
+
 //Local callback prefix
 function helloWorld()
 {
@@ -43,4 +48,5 @@ var_dump($environment->get('ip_address'));
 var_dump($environment->get('geoip_client_country'));
 var_dump($environment->get('url_param_test'));
 var_dump($environment->get('url_domain'));
+var_dump($environment->get('cookie_test'));
 var_dump($environment->get('hello'));
