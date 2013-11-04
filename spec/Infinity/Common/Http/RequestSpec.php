@@ -26,6 +26,11 @@ class RequestSpec extends ObjectBehavior
         $_SERVER[ 'PHP_AUTH_PW' ]       = 'pass';
     }
 
+    function letgo()
+    {
+        $_SERVER = array();
+    }
+
     function it_is_initializable()
     {
         $this->shouldHaveType('Infinity\Common\Http\Request');
