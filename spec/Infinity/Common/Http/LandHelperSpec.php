@@ -7,13 +7,10 @@ use Prophecy\Argument;
 
 class LandHelperSpec extends ObjectBehavior
 {
-    function let()
-    {
-    }
-
     function letgo()
     {
         $_SERVER = array();
+        $_GET = array();
     }
 
     function it_is_initializable()
@@ -37,5 +34,29 @@ class LandHelperSpec extends ObjectBehavior
             'http://www.mysite.com/page1.html?someparam=somevalue';
 
         $this->isLand()->shouldReturn( FALSE );
+    }
+
+    function it_has_a_setPersistedLandParamRules_method()
+    {
+        $config = array(
+            'testParam'     => 'P1D',
+            'testParam2'    => 'session',
+        );
+
+        $this->setPersistedLandParamRules( $config )->shouldReturn( NULL );
+    }
+
+    function it_has_a_runPersistedLandParamDetection_method()
+    {
+        $config = array(
+            'testParam'     => 'P1D',
+            'testParam2'    => 'session',
+        );
+
+        $_GET['testParam']  = 'hello world';
+        $_GET['testParam2'] = 'session value';
+
+        $this->setPersistedLandParamRules( $config )->shouldReturn( NULL );
+        $this->runPersistedLandParamDetection()->shouldReturn( NULL );
     }
 }
