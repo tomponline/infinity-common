@@ -7,7 +7,7 @@ use Prophecy\Argument;
 
 class RequestSpec extends ObjectBehavior
 {
-    public function __construct()
+    function let()
     {
         $_SERVER['REQUEST_URI']         =
             'http://www.infinitycloud.com/segment1/segment2/testing.txt?queryParam1=queryVal1&queryParam2=queryVal2';
