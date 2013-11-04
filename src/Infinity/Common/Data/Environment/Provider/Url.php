@@ -28,7 +28,7 @@ class Url implements ProviderInterface
 
     /**
      * This method returns the value of a parameter in the URL query string.
-     * @param string Parameter to get from URL query string.
+     * @param string $param Parameter to get from URL query string.
      * @return mixed Parameter value on success, NULL when not found.
      */
     public function getUrlParam( $param )
