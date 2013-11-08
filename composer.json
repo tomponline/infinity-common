@@ -21,7 +21,6 @@
     "autoload": {
         "psr-0": { "Infinity\\Common": "src" }
     },
-    "target-dir": "Infinity/Common",
     "config": {
         "bin-dir": "bin"
     }
