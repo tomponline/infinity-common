@@ -11,19 +11,19 @@ Add to your requirements and run update
 
 ```json
 "require": {
-    "infinity/infinity-common": "dev-master"
+    "infinitytracking/infinity-common": "dev-master"
 },
 ```
 
 ```sh
-composer update infinity/infinity-common
+composer update infinitytracking/infinity-common
 ```
 
 
 Or use the CLI
 
 ```sh
-composer require infinity/infinity-common
+composer require infinitytracking/infinity-common
 ```
 
 ##RPM
