@@ -1,5 +1,5 @@
 {
-    "name": "infinity/infinity-common",
+    "name": "infinitytracking/infinity-common",
     "type": "library",
     "license": "GPL-2.0",
     "description": "Infinity Common PHP Classes",
