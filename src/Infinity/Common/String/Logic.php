@@ -307,7 +307,7 @@ class Logic
      * @param string IP address (e.g. 192.168.0.1)
      * @param string CIDR network (e.g. 192.168.0.0/24)
      * @return boolean TRUE if IP is within network, FALSE if not or invalid IP.
-     * @throws Icc_Exception If invalid CIRD network supplied.
+     * @throws Exception If invalid CIRD network supplied.
      */
     private static function _checkInNet( $ip, $cidr )
     {
@@ -331,7 +331,7 @@ class Logic
             else
             {
                 //Throw exception if invalid configuration is supplied.
-                throw new Icc_Exception( 'Invalid CIDR Network supplied' );
+                throw new Exception( 'Invalid CIDR Network supplied' );
             }
         }
 
