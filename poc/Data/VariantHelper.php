@@ -23,7 +23,6 @@ $environment->registerPrefixHandler( 'visits', function(){
 } );
 
 $variantHelper = new VariantHelper();
-$variantHelper->setEnvironment( $environment );
 
 $variantConfig = array(
     'variants'  => array(
@@ -64,6 +63,7 @@ $variantConfig = array(
 try
 {
     $variantHelper->setConfig( $variantConfig );
+    $variantHelper->setEnvironment( $environment );
     $ret = $variantHelper->run();
     var_dump( $ret );
 }

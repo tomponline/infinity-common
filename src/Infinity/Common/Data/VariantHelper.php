@@ -71,10 +71,17 @@ class VariantHelper
     /**
      * Sets the environment variable
      * @param Environment $environment environment object
+     * @throws Exception
      * @return NULL
      */
-    public function setEnvironment( Environment $environment )
+    public function setEnvironment( $environment )
     {
+        if( ! $environment instanceof Environment )
+        {
+            throw new Exception(
+                '$environment must be an instance of Environment' );
+        }
+
         $this->_environment = $environment;
     }
 
@@ -85,32 +92,38 @@ class VariantHelper
      */
     public function run()
     {
-        if( ! is_null( $this->_variantConfig ) )
-        {
-            $ret = FALSE;
-
-            foreach( $this->_variantConfig['variants'] as $variant )
-            {
-                //Check matching criteria
-                if( $this->_matchAllCriteria( $variant['criteria'] ) )
-                {
-                    $ret = $variant['return'];
-                }
-            }
-
-            //If no matches, use the defaultReturn value
-            if( ! $ret )
-            {
-                $ret = $this->_variantConfig['defaultReturn'];
-            }
-
-            return $ret;
-        }
-        else
+        //Validate prerequisites
+        if( is_null( $this->_variantConfig ) )
         {
             throw new Exception(
                 'Can\'t run VariantHelper without a valid variant config' );
         }
+
+        if( is_null( $this->_environment ) )
+        {
+            throw new Exception(
+                'Can\'t run VariantHelper without an environment' );
+        }
+
+        //Set default return
+        $ret = FALSE;
+
+        foreach( $this->_variantConfig['variants'] as $variant )
+        {
+            //Check matching criteria
+            if( $this->_matchAllCriteria( $variant['criteria'] ) )
+            {
+                $ret = $variant['return'];
+            }
+        }
+
+        //If no matches, use the defaultReturn value
+        if( ! $ret )
+        {
+            $ret = $this->_variantConfig['defaultReturn'];
+        }
+
+        return $ret;
     }
 
     /**
