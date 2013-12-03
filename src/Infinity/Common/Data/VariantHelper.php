@@ -74,14 +74,8 @@ class VariantHelper
      * @throws Exception
      * @return NULL
      */
-    public function setEnvironment( $environment )
+    public function setEnvironment( Environment $environment )
     {
-        if( ! $environment instanceof Environment )
-        {
-            throw new Exception(
-                '$environment must be an instance of Environment' );
-        }
-
         $this->_environment = $environment;
     }
 
