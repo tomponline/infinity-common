@@ -25,7 +25,7 @@ $environment->registerPrefixHandler( 'visits', function(){
 $variantHelper = new VariantHelper();
 $variantHelper->setEnvironment( $environment );
 
-$blockConfig = array(
+$variantConfig = array(
     'variants'  => array(
         array(
             'criteria'    => array(
@@ -63,9 +63,9 @@ $blockConfig = array(
 
 try
 {
-    $variantHelper->setConfig( $blockConfig );
-    $blockId = $variantHelper->run();
-    var_dump( $blockId );
+    $variantHelper->setConfig( $variantConfig );
+    $ret = $variantHelper->run();
+    var_dump( $ret );
 }
 catch( Exception $e )
 {

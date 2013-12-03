@@ -12,37 +12,37 @@ use Infinity\Common\String\Logic;
  */
 class VariantHelper
 {
-    private $_blockConfig;
+    private $_variantConfig;
     private $_environment;
 
     /**
-     * Sets the block config
-     * @param array $blockConfig the block config
+     * Sets the variant config
+     * @param array $variantConfig the variant config
      * @throws Exception
      * @return NULL
      */
-    public function setConfig( array $blockConfig )
+    public function setConfig( array $variantConfig )
     {
         //Validate variants
-        if( ! is_array( $blockConfig['variants'] ) )
+        if( ! is_array( $variantConfig['variants'] ) )
         {
             throw new Exception(
-                'Block config variants must be supplied as an array' );
+                'Variant config variants must be supplied as an array' );
         }
 
-        foreach( $blockConfig['variants'] as $variant )
+        foreach( $variantConfig['variants'] as $variant )
         {
             //Check it has criteria and a return value
             if( ! isset( $variant['criteria'] ) )
             {
                 throw new Exception(
-                    'All block config variants must have criteria' );
+                    'All variant config variants must have criteria' );
             }
 
             if( ! isset( $variant['return'] ) )
             {
                 throw new Exception(
-                    'All block config variants must have a return value' );
+                    'All variant config variants must have a return value' );
             }
 
             //Validate criteria
@@ -58,14 +58,14 @@ class VariantHelper
         }
 
         //Validate defaultReturn
-        if( ! isset( $blockConfig['defaultReturn'] ) )
+        if( ! isset( $variantConfig['defaultReturn'] ) )
         {
             throw new Exception(
-                'Block config must contain a defaultReturn value' );
+                'Variant config must contain a defaultReturn value' );
         }
 
-        //Set the block config
-        $this->_blockConfig = $blockConfig;
+        //Set the variant config
+        $this->_variantConfig = $variantConfig;
     }
 
     /**
@@ -79,17 +79,17 @@ class VariantHelper
     }
 
     /**
-     * Calculates the correct block to use based on the variant parameters
+     * Calculates the correct variant to use based on the variant parameters
      * @throws Exception
-     * @return mixed block ID
+     * @return mixed
      */
     public function run()
     {
-        if( ! is_null( $this->_blockConfig ) )
+        if( ! is_null( $this->_variantConfig ) )
         {
             $ret = FALSE;
 
-            foreach( $this->_blockConfig['variants'] as $variant )
+            foreach( $this->_variantConfig['variants'] as $variant )
             {
                 //Check matching criteria
                 if( $this->_matchAllCriteria( $variant['criteria'] ) )
@@ -101,7 +101,7 @@ class VariantHelper
             //If no matches, use the defaultReturn value
             if( ! $ret )
             {
-                $ret = $this->_blockConfig['defaultReturn'];
+                $ret = $this->_variantConfig['defaultReturn'];
             }
 
             return $ret;
@@ -109,7 +109,7 @@ class VariantHelper
         else
         {
             throw new Exception(
-                'Can\'t run VariantHelper without a valid block config' );
+                'Can\'t run VariantHelper without a valid variant config' );
         }
     }
 
