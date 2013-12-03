@@ -79,7 +79,7 @@ class VariantHelper
     }
 
     /**
-     * Calculates the correct variant to use based on the variant parameters
+     * Calculates the correct variant to use based on the variant criteria
      * @throws Exception
      * @return mixed
      */
