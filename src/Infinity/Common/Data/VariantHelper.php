@@ -90,13 +90,13 @@ class VariantHelper
         if( is_null( $this->_variantConfig ) )
         {
             throw new Exception(
-                'Can\'t run VariantHelper without a valid variant config' );
+                'Cannot run VariantHelper without a valid variant config' );
         }
 
         if( is_null( $this->_environment ) )
         {
             throw new Exception(
-                'Can\'t run VariantHelper without an environment' );
+                'Cannot run VariantHelper without an environment' );
         }
 
         //Set default return
