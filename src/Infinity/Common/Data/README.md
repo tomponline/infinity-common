@@ -63,3 +63,130 @@ $environment->registerPrefixHandler( 'slowVar', 'slowVariable', $cache = TRUE );
 var_dump( $environment->get('slowVar') ); //This will take 2 seconds
 var_dump( $environment->get('slowVar') ); //This will be instant
 ```
+
+VariantHelper
+=====================
+
+The VariantHelper provides the ability to make variant decisions based on a configuration using data from the application's environment
+
+###Basic configuration setup
+
+The configuration array for the variants should have at minimum an array of ```variants``` and a ```defaultReturn``` value of any type
+
+```php
+$config = array(
+    'variants'  => array(),
+    'defaultReturn' => 'defaultReturnValue',
+);
+```
+
+####Variant configuration
+
+The variants should be configured as a two demensional array of criteria and return values
+
+```php
+$config = array(
+    'variants'  => array(
+        array(
+            'criteria'  => array(),
+            'return'    => 'returnValue',
+        ),
+        array(
+            'criteria'  => array(),
+            'return'    => 'someOtherReturnValue',
+        ),
+    ),
+    'defaultReturn' => 'defaultReturnValue',
+);
+```
+
+####Criteria configuration
+
+Criterion are configured as a two dimensional array with three values. A ```field```, an ```op``` and a ```value```
+
+```php
+$config = array(
+    'variants'  => array(
+        array(
+            'criteria'  => array(
+                array(
+                    'field' => 'visits',
+                    'op'    => 'eq',
+                    'value' => 0,
+                ),
+                array(
+                    'field' => 'ip_country',
+                    'op'    => 'eq',
+                    'value' => 'US',
+                ),
+            ),
+            'return'    => 'returnValue',
+        ),
+        array(
+            'criteria'  => array(
+                array(
+                    'field' => 'visits',
+                    'op'    => 'gt',
+                    'value' => 0,
+                ),
+                array(
+                    'field' => 'ip_country',
+                    'op'    => 'eq',
+                    'value' => 'US',
+                ),
+            ),
+            'return'    => 'someOtherReturnValue',
+        ),
+    ),
+    'defaultReturn' => 'defaultReturnValue',
+);
+```
+
+###Usage
+
+The basic process of using VariantHelper is to
+
+* Setup the environment
+* Create a variant config
+* Set the config
+* Set the environment
+* Run it
+
+```setConfig()```, ```setEnvironment()``` and ```run()``` will all throw exceptions on error
+
+```php
+//First we need to initialise some Environment variables
+$environment = new Environment();
+$environment->registerPrefixHandler( 'ip_country', function(){
+    return 'US';
+} );
+$environment->registerPrefixHandler( 'visits', function(){
+    return 2;
+} );
+
+//Initialise an instance of the VariantHelper
+$variantHelper = new VariantHelper();
+
+//Create the config
+$config = array(
+    //Config options
+);
+
+try
+{
+    //Set the config options
+    $variantHelper->setConfig( $config );
+
+    //Set the Environment we created earlier
+    $variantHelper->setEnvironment( $environment );
+
+    //Run it
+    //$ret will be either the first variant that matched against the critera
+    //or the defaultReturn value
+    $ret = $variantHelper->run();
+}
+catch( Exception $e )
+{
+    echo $e->getMessage();
+}
+```
