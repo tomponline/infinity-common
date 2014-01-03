@@ -47,11 +47,22 @@ class VisitCount implements ProviderInterface
         {
             $referrer = parse_url( $this->_request->getReferrer() );
 
-            if( $referrer['host'] != $this->_request->getHost() )
+            if( isset( $referrer['host'] ) )
             {
-                $visitCount ++;
-                setcookie( self::COOKIE_NAME, $visitCount, $this->_cookieExpires, '/' );
+                //Check the referrer host against the request host
+                if( $referrer['host'] != $this->_request->getHost() )
+                {
+                    $visitCount ++;
+                }
             }
+            else
+            {
+                //Referrer not available - assuming new visit
+                $visitCount ++;
+            }
+
+            //Set the cookie - even if not modified, time will be updated
+            setcookie( self::COOKIE_NAME, $visitCount, $this->_cookieExpires, '/' );
         }
 
         return $visitCount;
