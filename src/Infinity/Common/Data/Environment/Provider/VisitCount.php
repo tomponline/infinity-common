@@ -35,21 +35,22 @@ class VisitCount implements ProviderInterface
      */
     public function getVisitCountValue()
     {
-        $visitCount = ( isset( $_COOKIE[ self::COOKIE_NAME ] ) ) ? $_COOKIE[ self::COOKIE_NAME ] : 0;
+        //Default to 0
+        $visitCount = 0;
+
+        if( isset( $_COOKIE[ self::COOKIE_NAME ] ) && is_numeric( $_COOKIE[ self::COOKIE_NAME ] ) )
+        {
+            $visitCount = $_COOKIE[ self::COOKIE_NAME ];
+        }
 
         if( ! headers_sent() )
         {
             $referrer = parse_url( $this->_request->getReferrer() );
 
-            //Strip www. from host names
-            $referrerHost   = ltrim( $referrer['host'], 'www.' );
-            $requestHost    = ltrim( $this->_request->getHost(), 'www.' );
-
-            if( $referrerHost != $requestHost )
+            if( $referrer['host'] != $this->_request->getHost() )
             {
                 $visitCount ++;
-                setcookie( self::COOKIE_NAME, $visitCount, $this->_cookieExpires,
-                    '/', $this->_request->getHost() );
+                setcookie( self::COOKIE_NAME, $visitCount, $this->_cookieExpires, '/' );
             }
         }
 
