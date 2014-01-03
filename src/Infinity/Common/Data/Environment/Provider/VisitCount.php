@@ -11,7 +11,7 @@ use Infinity\Common\Http\Request;
  */
 class VisitCount implements ProviderInterface
 {
-    const COOKIE_NAME = 'ic_visits';
+    const COOKIE_NAME = 'ict_visits';
     const COOKIE_EXPIRES = 315360000; //10 years
 
     private $_request;

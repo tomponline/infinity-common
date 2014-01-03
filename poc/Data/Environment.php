@@ -40,7 +40,7 @@ $visitCount = new Provider\VisitCount();
 $environment->registerProvider( $visitCount );
 $_SERVER[ 'HTTP_HOST' ] = 'example.com';
 $_SERVER[ 'HTTP_REFERER' ] = 'http://www.example.com/page/?query=params';
-$_COOKIE[ 'ic_visits' ] = 2;
+$_COOKIE[ 'ict_visits' ] = 2;
 
 //Local callback prefix
 function helloWorld()
