@@ -6,11 +6,11 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Infinity\Common\Data\Environment;
 
-class CookieSpec extends ObjectBehavior
+class VisitCountSpec extends ObjectBehavior
 {
     function let()
     {
-        $_COOKIE[ 'ic_visits' ] = 2;
+        $_COOKIE[ 'ict_visits' ] = 2;
         $_SERVER[ 'HTTP_REFERER' ] = 'http://www.example.com/page/?query=params';
         $_SERVER[ 'HTTP_HOST' ] = 'example.com';
     }
@@ -28,7 +28,7 @@ class CookieSpec extends ObjectBehavior
 
     function it_has_a_getCookieValue_method()
     {
-        $this->getVisitCountValue()->shouldReturn( 2 );
+        $this->getVisitCountValue()->shouldReturn( 3 );
     }
 
     /**
