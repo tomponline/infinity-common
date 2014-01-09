@@ -212,45 +212,6 @@ class Client
     }
 
     /**
-     * This method sets the POST data. Also sets HTTP method to PUT.
-     * @param mixed Sets POST data, can be either string or array.
-     * @return NULL
-     * @deprecated Use setRequestData instead.
-     */
-    public function setRequestPutData( $data )
-    {
-        $this->setRequestData( $data );
-        $this->setRequestMethod( 'PUT' );
-    }
-
-    /**
-     * This method sets the POST data. Also sets HTTP method to POST.
-     * Note; The HTTP RFC doesn't explicitly allow or disallow the user of
-     * body data with a DELETE request. so, it's here, as it's quite
-     * useful not to have to send everything via the URL.
-     * @param mixed Sets POST data, can be either string or array.
-     * @deprecated Use setRequestData instead.
-     * @return NULL
-     */
-    public function setRequestDeleteData( $data )
-    {
-        $this->setRequestData( $data );
-        $this->setRequestMethod( 'DELETE' );
-    }
-
-    /**
-     * This method sets the POST data. Also sets HTTP method to POST.
-     * @param mixed Sets POST data, can be either string or array.
-     * @deprecated Use setRequestData instead.
-     * @return NULL
-     */
-    public function setRequestPostData( $data )
-    {
-        $this->_postData = $data;
-        $this->setRequestMethod( 'POST' );
-    }
-
-    /**
      * Resets any per-request settings ready for use with another URI.
      * Clears the URI, request data, credentials and headers.
      * Does not change timeout behaviour, proxy settings, etc.

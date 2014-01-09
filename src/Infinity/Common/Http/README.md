@@ -60,11 +60,6 @@ $client->setRequestUri( 'localhost' );
 $client->setRequestData( array() );
 $client->setRequestMethod( 'POST' );
 
-//Set request data and method
-$client->setRequestPostData( array() ); //POST
-$client->setRequestPutData( array() ); //PUT
-$client->setRequestDeleteData( array() ); //DELETE
-
 //Sets request credentials
 $client->setRequestCredentials( 'user', 'passwd' );
 
