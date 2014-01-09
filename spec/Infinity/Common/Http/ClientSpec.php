@@ -93,9 +93,9 @@ class ClientSpec extends ObjectBehavior
     }
 
     //Set checks
-    function it_has_a_setTimeout_method()
+    function it_has_a_setReadTimeout_method()
     {
-        $this->setTimeout( 30 )->shouldReturn( NULL );
+        $this->setReadTimeout( 30 )->shouldReturn( NULL );
     }
 
     function it_has_a_setRequestTimeout_method()
@@ -147,33 +147,6 @@ class ClientSpec extends ObjectBehavior
         );
 
         $this->setRequestData( $data )->shouldReturn( NULL );
-    }
-
-    function it_has_a_setRequestPutData_method()
-    {
-        $data = array(
-            'foo'   => 'bar',
-        );
-
-        $this->setRequestPutData( $data )->shouldReturn( NULL );
-    }
-
-    function it_has_a_setRequestDeleteData_method()
-    {
-        $data = array(
-            'foo'   => 'bar',
-        );
-
-        $this->setRequestDeleteData( $data )->shouldReturn( NULL );
-    }
-
-    function it_has_a_setRequestPostData_method()
-    {
-        $data = array(
-            'foo'   => 'bar',
-        );
-
-        $this->setRequestPostData( $data )->shouldReturn( NULL );
     }
 
     function it_has_a_setMemoryLimit_method()
