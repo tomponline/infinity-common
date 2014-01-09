@@ -77,7 +77,7 @@ class Client
      * @param integer The number of seconds that the timeout should be set to.
      * @return NULL
      */
-    public function setTimeout( $data )
+    public function setReadTimeout( $data )
     {
         $this->_readTimeout = $data;
     }
