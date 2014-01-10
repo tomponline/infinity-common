@@ -29,16 +29,12 @@ class ClientSpec extends ObjectBehavior
 
     function it_has_a_getResponseHeader_method()
     {
-        $this->setRequestUri( 'localhost' );
-        $this->sendRequest()->shouldReturn( TRUE );
         $this->getResponseHeader( 'User-Agent' )->shouldReturn( FALSE );
     }
 
     function it_has_a_getResponseCode_method()
     {
-        $this->setRequestUri( 'localhost' );
-        $this->sendRequest()->shouldReturn( TRUE );
-        $this->getResponseCode()->shouldReturn( 200 );
+        $this->getResponseCode()->shouldReturn( FALSE );
     }
 
     function it_has_a_getResponseHandle_method()
@@ -48,23 +44,17 @@ class ClientSpec extends ObjectBehavior
 
     function it_has_a_getResponseSize_method()
     {
-        $this->setRequestUri( 'localhost' );
-        $this->sendRequest()->shouldReturn( TRUE );
-        $this->getResponseSize()->shouldReturn( 0 );
+        $this->getResponseSize()->shouldReturn( FALSE );
     }
 
     function it_has_a_getDownloadedSize_method()
     {
-        $this->setRequestUri( 'localhost' );
-        $this->sendRequest()->shouldReturn( TRUE );
-        $this->getResponseSize()->shouldReturn( 0 );
+        $this->getResponseSize()->shouldReturn( FALSE );
     }
 
     function it_has_a_getResponseResult_method()
     {
-        $this->setRequestUri( 'localhost' );
-        $this->sendRequest()->shouldReturn( TRUE );
-        $this->getResponseResult()->shouldReturn( TRUE );
+        $this->getResponseResult()->shouldReturn( FALSE );
     }
 
     function it_has_a_getResponseError_method()
